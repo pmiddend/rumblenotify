@@ -65,6 +65,7 @@ int rumblenotify::rumble() {
 
     current_dir_entry = readdir(eventDir);
   }
+  closedir(eventDir);
 
   // Upload a new effect! All values are hard-coded because I can.
   __s16 const effect_id{0};
