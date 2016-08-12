@@ -1,0 +1,27 @@
+* rumblenotify - vibration alarms for your desktop 
+** Say what?
+
+You have a cell phone, right? With a vibration feature when new messages arrive? And you have a gamepad with a rumble feature - normally used for playing games? Well, you do the math.
+
+** What does it do?
+
+It implements the Notification Daemon dbus interface, similar to services like [[https://github.com/knopwob/dunst][dunst]]. Programs like thunderbird or IntelliJ idea use this interface to send notifications about new mails, successful compilation and so on. Normally, this is shown as a text somewhere on the top right.
+
+rumblenotify doesn't show anything, it looks for a game pad in =/dev/input/= that can rumble. Currently, it's only tested with the xpad driver (XBox gamepads). And you need evdev in your kernel. Shouldn't be a problem though.
+
+** How to compile
+
+You need
+
+  - dbus
+  - glib
+
+Then just =make= and start via =./rumblenotify=.
+
+** Screenshots 
+
+Of what?
+
+** Acknowledgements
+
+I mostly stole the code from dunst and [[https://github.com/flosse/linuxconsole][fftest.c]]. Thanks for the hard work.
