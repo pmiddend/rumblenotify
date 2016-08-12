@@ -12,9 +12,10 @@
 #include <errno.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <climits>
 
 // This is shamelessly copied from fftest.c
-#define nBitsPerUchar          (sizeof(unsigned char) * 8)
+#define nBitsPerUchar          CHAR_BIT
 #define bitOffsetInUchar(bit)  ((bit)%nBitsPerUchar)
 #define ucharIndexForBit(bit)  ((bit)/nBitsPerUchar)
 #define testBit(bit, array)    ((array[ucharIndexForBit(bit)] >> bitOffsetInUchar(bit)) & 1)
