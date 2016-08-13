@@ -68,7 +68,6 @@ int rumblenotify::rumble() {
   closedir(eventDir);
 
   // Upload a new effect! All values are hard-coded because I can.
-  __s16 const effect_id{0};
   __u16 const effect_direction{0};
   ff_effect effect{
     FF_PERIODIC,
@@ -104,6 +103,8 @@ int rumblenotify::rumble() {
     return EXIT_FAILURE;
   }
 
+  __s16 const effect_id{effect.id};
+
   // Play it, then close the gamepad for reuse.
   input_event const play{
     timeval{
@@ -111,7 +112,7 @@ int rumblenotify::rumble() {
 	0
 	},
       EV_FF,
-	effect_id,
+	static_cast<__u16>(effect_id),
 	1
 	};
 
